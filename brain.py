@@ -4,6 +4,11 @@ from datetime import datetime
 import os
 import requests
 
+GENDER = 'YOUR GENDER'  # str
+WEIGHT_KG = 'YOUR WEIGHT'  # float
+HEIGTH_CM = 'YOUR HEIGHT'  # float
+AGE = 'YOUR AGE'  # int
+
 Nutrix_ID = os.environ.get('NUTRIX_ID')
 Nutrix_Key = os.environ.get('NUTRIX_KEY')
 HEADER = {
@@ -19,10 +24,10 @@ SHEETY_URL = os.environ.get('SHEETY_URL')
 def get_data_form_nutrix(text):
     parameters = {
         "query": text,
-        'gender': 'male',  # My infos
-        'weight_kg': 93.5,  # My infos
-        'height_cm': 181.98,  # My infos
-        'age': 36  # My infos
+        'gender': GENDER
+        'weight_kg': WEIGHT_KG
+        'height_cm': HEIGTH_CM
+        'age': AGE
     }
     response = requests.post(url=BASE_URL, headers=HEADER, json=parameters)
     return response.json()['exercises']
