@@ -43,4 +43,4 @@ def post_row_to_sheets(a_list: list):
                                 'Authorization': f'Bearer {SHEETY_TOKEN}',
                                 'Content-Type': 'application/json'},
                                 json=parameters)
-        print(response.text)
+        print('Workout recorded.')
